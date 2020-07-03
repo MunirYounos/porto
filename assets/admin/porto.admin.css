@@ -1,0 +1,50 @@
+/* 
+
+	@package porto theme 
+
+*/
+.porto-banner-preview {
+	position: relative;
+	display: block;
+	width: 99%;
+	height: 460px;
+	background-color: #fbfff8;
+}
+.porto-banner-preview .porto-fullname {
+	color: #3b840c;
+	font-size: 2.4rem;
+	padding: 4rem 0 0 3rem;
+	font-weight: 500;
+}
+.porto-banner-preview .porto-description {
+	color: #3b840c;
+	font-size: 1.4rem;
+	padding: 0 0 0 3.1rem;
+	font-weight: 200;
+}
+.porto-banner-preview .porto-image{
+	height: 300px;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: 0;
+	width: 300px;
+	left: 20px;
+}
+@media(min-width: 1140px){
+	.porto-banner-preview {
+		width: 70%;
+		height: 300px;
+	}
+	.porto-banner-preview .porto-fullname {
+		font-size: 3.2rem;
+		padding: 6rem 0 0 3rem;
+	}
+	.porto-banner-preview .porto-image{
+		top: 0;
+		right: 20px;
+		bottom: auto;
+		left: auto;
+	}
+}
