@@ -22,4 +22,14 @@ jQuery(document).ready(function($){
 		});
 		mediaUploader.open();
 	});
+
+	$('#remove-banner').on('click', function(e){
+		e.preventDefault();
+		var answer = confirm("Are you sure you want to remove banner?");
+		if(answer == true){
+			$('#banner-input-area').val('');
+			$('.porto-general-form').submit();
+		} 
+		return;
+	});
 });

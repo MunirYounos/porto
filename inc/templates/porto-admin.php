@@ -16,8 +16,8 @@
 	</div>
 </div>
 
-<form method="post" action="options.php">
+<form  method="post" action="options.php" class="porto-general-form">
 	<?php settings_fields( 'porto-settings-group' ); ?>
 	<?php	do_settings_sections( 'munir_porto' ); ?>
-	<?php submit_button(); ?>
+	<?php submit_button('Save Changes', 'primary', 'btnSubmit'); ?>
 </form>
