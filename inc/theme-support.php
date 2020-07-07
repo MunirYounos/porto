@@ -25,3 +25,24 @@ $background = get_option('custom_background');
 if(@$background = 1 ){
 	add_theme_support('custom-background');
 }
+add_theme_support( 'post-thumbnails' );
+/* Navigation */
+function porto_register_nav_menu(){
+	register_nav_menu( 'primary', 'Header navigation menu.' );
+}
+
+add_action( 'after_setup_theme', 'porto_register_nav_menu');
+
+/*
+@package porto theme
+
+		===================================
+		Blog loop custom date function
+		===================================
+*/
+function porto_posted_meta(){
+	echo 'all meta tags are here';
+}
+function porto_posted_footer(){
+	echo 'all footer tags are here ';
+}

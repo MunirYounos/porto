@@ -1,0 +1,122 @@
+/* 
+=======================
+Porto special fonts 
+=======================
+*/
+@font-face {
+  font-family: 'porto-icon';
+  src:  url('../fonts/porto-icon.eot?te0k35');
+  src:  url('../fonts/porto-icon.eot?te0k35#iefix') format('embedded-opentype'),
+    url('../fonts/porto-icon.ttf?te0k35') format('truetype'),
+    url('../fonts/porto-icon.woff?te0k35') format('woff'),
+    url('../fonts/porto-icon.svg?te0k35#porto-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.porto-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'porto-icon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.porto-porto-arrow:before {
+  content: "\e900";
+}
+.porto-porto-circle:before {
+  content: "\e901";
+}
+.porto-porto-close:before {
+  content: "\e902";
+}
+.porto-porto-comment:before {
+  content: "\e903";
+}
+.porto-porto-cycle:before {
+  content: "\e904";
+}
+.porto-porto-envelop:before {
+  content: "\e905";
+}
+.porto-porto-facebook:before {
+  content: "\e906";
+}
+.porto-porto-heart:before {
+  content: "\e907";
+}
+.porto-porto-home:before {
+  content: "\e908";
+}
+.porto-porto-laptop:before {
+  content: "\e909";
+}
+.porto-porto-linkedin:before {
+  content: "\e90a";
+}
+.porto-porto-listen:before {
+  content: "\e90b";
+}
+.porto-porto-loader:before {
+  content: "\e90c";
+}
+.porto-porto-logo:before {
+  content: "\e90d";
+}
+.porto-porto-map:before {
+  content: "\e90e";
+}
+.porto-porto-mobile:before {
+  content: "\e90f";
+}
+.porto-porto-pen:before {
+  content: "\e910";
+}
+.porto-porto-search:before {
+  content: "\e911";
+}
+.porto-porto-shopping-bag .path1:before {
+  content: "\e912";
+  color: rgb(12, 12, 12);
+}
+.porto-porto-shopping-bag .path2:before {
+  content: "\e913";
+  margin-left: -1em;
+  color: rgb(38, 38, 38);
+}
+.porto-porto-star:before {
+  content: "\e914";
+}
+.porto-porto-user:before {
+  content: "\e915";
+}
+.porto-porto-video:before {
+  content: "\e916";
+}
+.porto-porto-wine:before {
+  content: "\e917";
+}
+
+/* 
+=======================
+Google fonts 
+=======================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Alatsi&family=Alegreya+SC:ital,wght@0,400;0,700;1,400;1,500;1,700&family=Krona+One&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Petit+Formal+Script&display=swap');
+$ff1: 'Alata', sans-serif;
+$ff2: 'Alatsi', sans-serif;
+$ff3: 'Alegreya SC', serif;
+$ff4: 'Krona One', sans-serif;
+$ff5: 'Montserrat', sans-serif;
+$ff6: 'Petit Formal Script', cursive;
+$ff7: "Times New Roman", Times, serif;

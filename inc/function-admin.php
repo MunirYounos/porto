@@ -28,6 +28,8 @@ add_action('admin_menu', 'porto_add_admin_page');
 		register_setting( 'porto-settings-group', 'first_name');
 		register_setting( 'porto-settings-group', 'last_name');
 		register_setting( 'porto-settings-group', 'banner_description');
+		register_setting( 'porto-settings-group', 'banner_description_two');
+		register_setting( 'porto-settings-group', 'banner_description_three');
 		// social media registers 
 		register_setting( 'porto-settings-group', 'linkedin_handler', 'porto_sanitize_linkedin_handler');
 		register_setting( 'porto-settings-group', 'facebook_handler');
@@ -37,6 +39,8 @@ add_action('admin_menu', 'porto_add_admin_page');
 		add_settings_field( 'porto-banner-picture', 'Banner Picture', 'porto_portfolio_banner', 'munir_porto', 'porto-portfolio-options');
 		add_settings_field( 'porto-name', 'Full Name', 'porto_portfolio_name', 'munir_porto', 'porto-portfolio-options');
 		add_settings_field( 'porto-description', 'Banner Description', 'porto_portfolio_description', 'munir_porto', 'porto-portfolio-options');
+		add_settings_field( 'porto-description_two', 'Banner Description Two', 'porto_portfolio_description_two', 'munir_porto', 'porto-portfolio-options');
+		add_settings_field( 'porto-description_three', 'Banner Description Three', 'porto_portfolio_description_three', 'munir_porto', 'porto-portfolio-options');
 		
 		// social media links
 		add_settings_field( 'porto_linkedin', 'Linkedin Profile', 'porto_portfolio_linkedin', 'munir_porto', 'porto-portfolio-options');
@@ -99,7 +103,15 @@ function porto_portfolio_name(){
 }
 function porto_portfolio_description(){
 	$description = esc_attr( get_option('banner_description') );
-	echo '<input type="text" name="banner_description" value="' . $description .'" placeholder="Banner description" /><p class="description"> Add max 50 words of text here.</p>';
+	echo '<input type="text" name="banner_description" value="' . $description .'" placeholder="Banner description" /><p class="description"> Add max 10 words of text here.</p>';
+}
+function porto_portfolio_description_two(){
+	$description_two = esc_attr( get_option('banner_description_two') );
+	echo '<input type="text" name="banner_description_two" value="' . $description_two .'" placeholder="Banner description Two" /><p class="description"> Add max 10 words of text here.</p>';
+}
+function porto_portfolio_description_three(){
+	$description_three = esc_attr( get_option('banner_description_three') );
+	echo '<input type="text" name="banner_description_three" value="' . $description_three .'" placeholder="Banner description Three" /><p class="description"> Add max 10 words of text here.</p>';
 }
 // sanitization settings 
 function porto_sanitize_linkedin_handler($input){
