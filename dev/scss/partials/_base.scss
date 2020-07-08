@@ -18,3 +18,13 @@ body{
 .hide{
   display: none;
 }
+.btn{
+  display: inline-block;
+  padding:  0.3rem 0.2rem;
+  text-decoration: none;
+  color: $lightblue;
+  border: 1px solid rgba($lightblue, 0.4);
+  &:hover {
+    opacity: 0.6;
+  }
+}

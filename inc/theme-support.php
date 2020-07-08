@@ -41,8 +41,33 @@ add_action( 'after_setup_theme', 'porto_register_nav_menu');
 		===================================
 */
 function porto_posted_meta(){
-	echo 'all meta tags are here';
+	$posted_on = human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ));
+	$categories = get_the_category();
+	$separator = '  <span class="separator">|</span>  ';
+	$output = ' ';
+	$i = 1;
+	if(!empty($categories)):
+			foreach( $categories as $category):
+				if($i > 1): $output .= $separator; endif;
+				$output .= '<a href="' . esc_url( get_category_link($category -> term_id) ) . '" alt="' . esc_attr( 'View all posts in%s', $category->name ) . '">' . esc_html( $category->name ) . '</a>';
+				$i++;
+			endforeach;
+	endif;
+	return '<span class="posted-on"><a href=" '. esc_url(get_permalink()) .  '"> ' . $posted_on  . '</a> ago </span><span class="separator">|</span><span class="posted-in"> '.  $output  .'</span>';
+
 }
 function porto_posted_footer(){
-	echo 'all footer tags are here ';
-}
+	$comments_num = get_comments_number();
+	if( comments_open() ){
+		if($comments_num == 0){
+			$comments = __('No Comments');
+		} elseif($comments_num > 1){
+			$comments = $comments_num . __(' Comments');
+		} else {
+			$comments = __('1 Comment');
+		}
+	} else {
+		$comments = __('Comments are closed');
+	}
+return '<div class="footer-meta-wrapper">' . get_the_tag_list( '<div class="tags-list"><span class="porto-icon"><span class="porto-porto-tag"></span></span>', ' <span class="separator">|</span>  ', '</div>' ) . '</div><div class="footer-comments"><span class="porto-icon"><span class="porto-porto-comment"></span></span><a href="'. get_comments_link() . '">'. $comments .'</a></div>'; 
+}; 
