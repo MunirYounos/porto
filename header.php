@@ -17,14 +17,11 @@
 		<a href="/" class="porto-porto-logo "></a>
 		</div>
     <nav class="navigation ">
-
             <?php wp_nav_menu( array(
                     'theme_location'        => 'primary',
                     'container'             => false,
                     'menu_class'            =>'unstyle',
                     'walker'                => new Porto_Walker_Nav_Primary()
-
-
             ));?>
     </nav>
     <div class="search-toggle-wrap">
@@ -38,17 +35,3 @@
     </div>
 </div>
 </header>
-<div class="container-fluid"> 
-	<div class="hero">
-		<div class="container">
-        <h1> Ambitious<strong class="dots">:</strong><a href="" class="typewrite" data-period="2000" 
-                            data-type='[ "Frontend Developer", 
-                                         "UI & UX Designer" ,
-                                         "The topside section"
-                                         ]'>
-                    <span class="wrap"></span>
-                </a>
-                </h1>
-		</div>
-	</div>
-</div>

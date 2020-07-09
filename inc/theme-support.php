@@ -71,3 +71,18 @@ function porto_posted_footer(){
 	}
 return '<div class="footer-meta-wrapper">' . get_the_tag_list( '<div class="tags-list"><span class="porto-icon"><span class="porto-porto-tag"></span></span>', ' <span class="separator">|</span>  ', '</div>' ) . '</div><div class="footer-comments"><span class="porto-icon"><span class="porto-porto-comment"></span></span><a href="'. get_comments_link() . '">'. $comments .'</a></div>'; 
 }; 
+
+
+function animated_text_frontend_feature($textone, $texttwo, $textthree){
+?>
+	<h1> <?php echo $textone; ?>
+	<strong class="dots">:</strong>
+	<a href="" class="typewrite" data-period="2000" 
+	data-type='[ 
+		"<?php echo $texttwo; ?>" ,
+		"<?php echo $textthree; ?>"
+	]'>
+	<span class="wrap"></span>
+	</a>
+	</h1>
+<?php }
