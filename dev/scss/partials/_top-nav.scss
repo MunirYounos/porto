@@ -1,32 +1,95 @@
-.head-top{
+.header{
     position: relative;
-    padding:0 1rem;
+    display: block;
+    width: 100%;
+    .top-bar{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        padding: 1rem 0;
+        display: block;
+        @include sm{
+            width: 100%;
+        }
+    }
     .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0 1rem;
     }
     .logo {
         display: inline-block;
-        padding:0;
-        margin:1rem 0 1rem 1rem;
+        padding-left:1rem;
         font-family: $ff3;
         text-transform: capitalize;
-        @include md {
-            margin:1rem 0 1rem 0rem;
+        z-index: 4;
+        font-size: 2rem;
+        @include sm{
+            padding-left: 0;
         }
-				font-size: 2rem;
-				a {
-					cursor: pointer;
-					color:$cons;
-					text-decoration: none;
-					transition: color 500ms ease-in-out;
-					&:hover{
-						color: $accent;
-					}
-				}
+        a {
+            cursor: pointer;
+            color:$white;
+            text-decoration: none;
+            transition: color 500ms ease-in-out;
+            &:hover{
+                color: $accent;
+            }
+        }
     }
-
+    .navigation{
+        position: relative;
+        width: 50%;
+        z-index: 2;
+        .unstyle {
+            list-style: none;
+            text-decoration: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            a {
+                cursor: pointer;
+                position: relative;
+                display: inline-block;
+                width:100%;
+                padding-left:0.1rem;
+                text-decoration: none;
+                font-family: $ff5;
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                color:$white;
+                font-weight: 400;
+                transition: 500ms ease-in color;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left:0.1rem;
+                    bottom:-5px;
+                    width: 2.5rem;
+                    height: 1px;
+                    background: $white;
+                    transition: 500ms ease-in background;
+                }
+                &:hover{
+                    color:$white;
+                    &::after{
+                        background:$accent;
+                    }
+                }
+            }
+            .menu-item{
+                cursor: pointer;
+                padding: 1rem;
+                transition: 500ms ease-in transform;
+                &.active a{
+                  color:$accent;
+                }
+            }
+        }
+    }
+@include cmx(960) {
     .navigation{
         position: absolute;
         top:0;
@@ -34,7 +97,7 @@
         background: $light-gray;
         transform: translateX(-100%);
         transition: 500ms ease-in transform;
-        width: 30%;
+        width: 60%;
         z-index: 9;
 
         &.show{
@@ -70,11 +133,11 @@
                     bottom:-1rem;
                     width: 2.5rem;
                     height: 2px;
-                    background: $cons;
+                    background: $white;
                     transition: 500ms ease-in left;
                 }
                 &:hover{
-                    color:$cons;
+                    color:$white;
                     &::after{
                         left:100%;
                         background:$cons;
@@ -103,52 +166,55 @@
         }
 
     }
+}
     .search-toggle-wrap {
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 10;
-        .toggle-wrap{
-            cursor: pointer;
-            display: inline-block;
-            padding:0.9rem 0.7rem 1.2rem 0.7rem;
-            .nav-toggle{
-                position: relative;
+        @include cmx(960){
+            .toggle-wrap{
+                cursor: pointer;
                 display: inline-block;
-                width: 1.3rem;
-                border-radius: 12px;
-                background:$cons;
-                height: 2px;
-                &::before, &::after{
-                    content: '';
-                    position: absolute;
-										background:$cons;
-                    border-radius: 12px;
+                padding:0.9rem 0.7rem 1.2rem 0.7rem;
+                .nav-toggle{
+                    position: relative;
+                    display: inline-block;
                     width: 1.3rem;
+                    border-radius: 12px;
+                    background:$white;
                     height: 2px;
-                    left:0;
-                    transition: 500ms ease-in transform;
-                }
-                &::before{
-                    top:-6px;
-
-                }
-                &::after{
-                    top:5px;
-                    transform: translateY(1px);
-                }
-                &.close{
-                    height: 0;
                     &::before, &::after{
                         content: '';
-                        background:$danger;
-                        transform: rotate(360deg);
+                        position: absolute;
+                        background:$white;
+                        border-radius: 12px;
+                        width: 1.3rem;
+                        height: 2px;
+                        left:0;
+                        transition: 500ms ease-in transform;
                     }
                     &::before{
-                        transform: rotate(45deg) translate(3px,3px);
+                        top:-6px;
+    
                     }
                     &::after{
-                        transform: rotate(-45deg) translate(5px,-5px);
+                        top:5px;
+                        transform: translateY(1px);
+                    }
+                    &.close{
+                        height: 0;
+                        &::before, &::after{
+                            content: '';
+                            background:$danger;
+                            transform: rotate(360deg);
+                        }
+                        &::before{
+                            transform: rotate(45deg) translate(3px,3px);
+                        }
+                        &::after{
+                            transform: rotate(-45deg) translate(5px,-5px);
+                        }
                     }
                 }
             }
@@ -159,11 +225,16 @@
             top:0;
             left:0;
             right:0;
-            width:100%;
+            width:125%;
             //height: 100vh;
             background: $light-gray;
             transform: translateY(-100%);
             transition: 500ms ease-in transform;
+  
+            @include sm{
+                width: 100%;
+ 
+            }
             input{
                 display: inline-block;
                 width: 60%;
@@ -220,11 +291,12 @@
                     transform: rotate(-45deg) translate(-12px, 12px);
                 }
                 &:hover{
-                    background: $cons;
+                    background: $accent;
                 }
             }
             &.show{
                 transform: translateY(0px);
+                z-index: 125;
 
             }
         }
@@ -232,7 +304,7 @@
         .search-icon{
             display: inline-block;
             cursor: pointer;
-            color:$cons;
+            color:$white;
             font-size: 0.8rem;
             font-weight: 100;
             margin-right: 1rem;

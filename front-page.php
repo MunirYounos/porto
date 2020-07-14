@@ -21,12 +21,14 @@ get_header();?>
 		?>
 		<div class="hero-wrapper">
 				<div class="hero-text">
+				<span class="name-top"><?php echo __('Hello, my name is') ?></span>
 				<p class="hero-name"><?php echo $fullname; ?></p>
 				<?php animated_text_frontend_feature($description, $description_two ,$description_three); ?>
 					<div class="button">
-					<a href="#section-blog" class="btn btn-front">Learn More</a>
+					<a href="#section-blog" class="btn btn-front"><?php echo __('learn more') ?><span class="porto-icon porto-porto-arrow"></span></a>
 					</div>
 				</div>
+
 				<div class="hero-image">
 				<img src="<?php echo $banner; ?>" alt="<?php echo $description; ?>">
 				</div>
@@ -44,13 +46,13 @@ get_header();?>
 				// Loop output goes here
 				?>
 				<article id="post-<?php the_ID(); ?>" <?php  post_class('porto-format-image'); ?>>
+				<div class="format-image-content">
 				<header class="format-image-header">
 					<?php the_title( '<h1 class="format-image-title">', '</h1>'); ?>
 					<div class="format-image-meta">
 						<?php echo porto_posted_meta(); ?>
 					</div>
 				</header>
-				<div class="format-image-content">
 					<?php if(has_post_thumbnail() ): ?>
 							<div class="format-image-image"><?php the_post_thumbnail(); ?>	
 								<div class="image-footer">
@@ -60,8 +62,8 @@ get_header();?>
 						<?php endif; ?>
 						<div class="format-image-excerpt">
 						<?php the_excerpt(); ?>
-						<a href="<?php the_permalink(); ?>" class="btn btn-format-image"><?php _e('Read More..'); ?></a>
-						</div>
+						<a href="<?php the_permalink(); ?>" class="btn format-image-btn"><?php echo __('Read More'); ?></a>
+					</div>
 				</div>
 			</article>
 				<?php 

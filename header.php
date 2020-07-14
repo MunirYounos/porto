@@ -11,7 +11,8 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class( 'porto' )?>>
-<header class="head-top">
+<header class="header">
+<div class="top-bar">
 <div class="container ">
 		<div class="logo porto-icon">
 		<a href="/" class="porto-porto-logo "></a>
@@ -33,5 +34,7 @@
             <span class="search-closer"></span>
         </form>
     </div>
+</div>
+
 </div>
 </header>

@@ -157,8 +157,7 @@
 								padding:0 6px;
 							}
 							.porto-icon{
-						
-								.porto-porto-tag{
+								&.porto-porto-tag{
 									color: $white;
 									font-size: 1.4rem;
 									padding-right: 5px;
@@ -169,7 +168,7 @@
 
 					.footer-comments {
 						.porto-icon{
-							.porto-porto-comment{
+							&.porto-porto-comment{
 								color: $white;
 								font-size: 1.4rem;
 								padding-right: 5px;

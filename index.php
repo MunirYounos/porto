@@ -9,7 +9,15 @@
 
 
 get_header(); ?>
-
+<div class="container-fluid"> 
+	<div class="hero">
+		<div class="container">
+		<div class="hero-wrapper">
+			
+		</div>
+		</div>
+	</div>
+</div>
 <section id="section-blog" class="section-blog">
 	<div class="container">
 	<div class="posts">

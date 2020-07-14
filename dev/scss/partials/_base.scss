@@ -1,11 +1,11 @@
 body{
-  position: relative;
   font-size: 12px;
   font-weight: 100;
   font-family: $ff5;
+  z-index: 0;
 }
 .container{
-  max-width: 1160px;
+  max-width: 1180px;
   width: 100%;
   margin: 0 auto;
 }
@@ -28,3 +28,7 @@ body{
     opacity: 0.6;
   }
 }
+img {
+  width: 100%;
+}
+
