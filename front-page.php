@@ -40,6 +40,7 @@ get_header();?>
 	<div class="container">
 	<div class="images">
 		<?php 
+		echo '	<h2 class="main-title">Featured Banner</h2>';
 		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 1 ) );
  
 		if ( $latest_blog_posts->have_posts() ) : while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();
@@ -55,23 +56,26 @@ get_header();?>
 				</header>
 					<?php if(has_post_thumbnail() ): ?>
 							<div class="format-image-image"><?php the_post_thumbnail(); ?>	
-								<div class="image-footer">
-									<?php  echo porto_posted_footer(); ?>
-							</div>
 						</div>
 						<?php endif; ?>
 						<div class="format-image-excerpt">
+							<div class="image-footer">
+									<?php  echo porto_posted_footer(); ?>
+							</div>
 						<?php the_excerpt(); ?>
 						<a href="<?php the_permalink(); ?>" class="btn format-image-btn"><?php echo __('Read More'); ?></a>
 					</div>
 				</div>
+
 			</article>
 				<?php 
 			endwhile; endif;
 		?>
 		</div>
+		<h2 class="main-title">Latest News</h2>
 		<div class="posts">
 		<?php 
+		
 		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 4 ) );
  
 		if ( $latest_blog_posts->have_posts() ) : while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();
