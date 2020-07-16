@@ -82,3 +82,229 @@ $screen-xl-min: 1200px;
     }
     
 }
+
+// new media queries 
+$media-queries: true;
+
+@mixin bp($point) {
+  @if ($media-queries) {
+    $bp-large-screen: 1824px;
+    $bp-bigscreen: 1824px;
+    $bp-ipad-max: 1024px;
+    $bp-ipad-min: 768px;
+    $bp-iphone5-max: 568px;
+    $bp-iphone-max: 480px;
+    $bp-iphone-min: 320px;
+    // **
+    // --------------------
+    // Options of screen breakpoints:
+    // 1. large-screen - from 1824px
+    // 2. big-screen - to 1824px
+    // 3. ipad-mini - to 758px
+    // 4. ipad - from 758px to 1024px
+    // 5. ipad-portrait - to 758px
+    // 6. iphone5-landscape - to 568px
+    // 7. iphone - from 320px to 480px
+    // 8. iphone-portrait - to 320px
+    // --------------------
+    // **
+    @if $point == large-screen {
+      @media // Very Large Screens
+      only screen and (min-width: #{$bp-large-screen}),
+      only screen and (min-device-width: #{$bp-large-screen}) {
+        @content;
+      }
+    }
+    @if $point == big-screen {
+      @media // Desktops and Laptops
+      only screen and (max-width: #{$bp-bigscreen}),
+      only screen and (max-device-width: #{$bp-bigscreen}) {
+        @content;
+      }
+    }
+    @if $point == ipad-mini {
+      @media // iPad-Mini (portrait and landscape)
+      handheld,
+      only screen and (min-device-pixel-ratio: 1),
+      only screen and (max-width: #{$bp-ipad-min}){
+        @content;
+      }
+    }
+    @if $point == ipad {
+      @media // iPad (portrait and landscape)
+      handheld,
+      only screen and (max-width: #{$bp-ipad-max})
+                  and (min-width: #{$bp-iphone5-max}) {
+        @content;
+      }
+    }
+    @if $point == ipad-portrait {
+      @media // iPad (portrait)
+      handheld,
+      only screen and (min-device-pixel-ratio: 2),
+      only screen and (max-width: #{$bp-ipad-min})
+                  and (orientation: portrait) {
+        @content;
+      }
+    }
+    @if $point == iphone5-landscape {
+      @media // iPhone 5 (landscape)
+      handheld,
+      only screen and (min-device-pixel-ratio: 2),
+      only screen and (max-width: #{$bp-iphone5-max}) {
+        @content;
+      }
+    }
+    @if $point == iphone {
+      @media // iPhone (portrait and landscape)
+      handheld,
+      only screen and (min-device-pixel-ratio: 2),
+      only screen and (max-width: #{$bp-iphone-max})
+                  and (min-width: #{$bp-iphone-min}) {
+        @content;
+      }
+    }
+    @if $point == iphone-portrait {
+      @media // iPhone (portrait)
+      handheld,
+      only screen and (min-device-pixel-ratio: 2),
+      only screen and (max-width: #{$bp-iphone-min}) {
+        @content;
+      }
+    }
+  }
+}
+/*************===================================sample usage ==================================******/  
+// .block {
+//   @include bp(large-screen){
+//     background: blue;
+//   }
+//   @include bp(big-screen){
+//     background: navy;
+//   }
+//   @include bp(ipad){
+//     background: brown;
+//   }
+//   @include bp(ipad-portrait){
+//     background: black;
+//   }
+//   @include bp(iphone5-landscape){
+//     background: green;
+//   }
+//   @include bp(iphone){
+//     background: yellow;
+//   }
+//   @include bp(iphone-portrait){
+//     background: pink;
+//   }
+//   width: 100%;
+//   height: 100px;
+//   background-color: red;
+// }
+
+// Manual mobile/rwd mixin powerated by Bigos 
+// https://github.com/lukasborawski/bigos#mobilerwd
+
+@mixin breakpoint($point, $direction: false) {
+    @if ($media-queries) {
+      @if type-of($point) == number and not unitless($point) and $direction == false {
+        @media // Custom
+        only screen and (max-width: #{$point}),
+        only screen and (max-device-width: #{$point})
+        {
+          @content;
+        }
+      }
+      @if not $direction == false and $direction == 'from-to' {
+        $from : nth($point, 1);
+        $to   : nth($point, 2);
+        @media all // Custom
+        and (max-width: #{$to})
+        and (max-device-width: #{$to})
+        and (min-width: #{$from})
+        and (min-device-width: #{$from})
+        {
+          @content;
+        }
+      }
+      @if type-of($point) == number and not unitless($point) and not $direction == false and $direction == 'to' {
+        @media // Custom
+        only screen and (max-width: #{$point}),
+        only screen and (max-device-width: #{$point})
+        {
+          @content;
+        }
+      }
+      @if type-of($point) == number and not unitless($point) and not $direction == false and $direction == 'from' {
+        @media // Custom
+        only screen and (min-width: #{$point}),
+        only screen and (min-device-width: #{$point})
+        {
+          @content;
+        }
+      }
+    }
+  }
+/*************===================================sample usage ==================================******/  
+//   // Usage
+//   @include breakpoint(640px 1024px, 'from-to') {
+//     // content code here will append styles
+//     // for all devices that can display 640px but not less
+//     // and devices that can display not more that 1024px
+//   }
+  
+//   @include breakpoint(640px, 'from') {
+//     // content code here will append styles
+//     // for all devices that can display more than 640px but not less
+//   }
+  
+//   @include breakpoint(640px, 'to') {
+//     // content code here will append styles
+//     // for all devices that can display less then 640px but not more
+  
+//     // it's the same mixin as lonely `breakpoint(640px)`
+//     // except that here we know exactly what range is defined
+//   }
+
+
+/*************===================================look for out puts here ==================================******/
+// .block {
+//     width: 100%;
+//     height: 100px;
+//     background-color: red;
+//   }
+//   @media only screen and (min-width: 1824px), only screen and (min-device-width: 1824px) {
+//     .block {
+//       background: blue;
+//     }
+//   }
+//   @media only screen and (max-width: 1824px), only screen and (max-device-width: 1824px) {
+//     .block {
+//       background: navy;
+//     }
+//   }
+//   @media handheld, only screen and (max-width: 1024px) and (min-width: 768px) {
+//     .block {
+//       background: brown;
+//     }
+//   }
+//   @media handheld, only screen and (min-device-pixel-ratio: 2), only screen and (max-width: 768px) and (orientation: portrait) {
+//     .block {
+//       background: black;
+//     }
+//   }
+//   @media handheld, only screen and (min-device-pixel-ratio: 2), only screen and (max-width: 568px) and (orientation: landscape) {
+//     .block {
+//       background: green;
+//     }
+//   }
+//   @media handheld, only screen and (min-device-pixel-ratio: 2), only screen and (max-width: 480px) and (min-width: 321px) {
+//     .block {
+//       background: yellow;
+//     }
+//   }
+//   @media handheld, only screen and (min-device-pixel-ratio: 2), only screen and (max-width: 321px) and (orientation: portrait) {
+//     .block {
+//       background: pink;
+//     }
+//   }

@@ -21,7 +21,7 @@ get_header();?>
 		?>
 		<div class="hero-wrapper">
 				<div class="hero-text">
-				<span class="name-top"><?php echo __('Hello, my name is') ?></span>
+				<p class="bigstyle"><?php echo $fullname; ?></p>
 				<p class="hero-name"><?php echo $fullname; ?></p>
 				<?php animated_text_frontend_feature($description, $description_two ,$description_three); ?>
 					<div class="button">

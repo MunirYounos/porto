@@ -77,7 +77,7 @@ function animated_text_frontend_feature($textone, $texttwo, $textthree){
 ?>
 
 	<h1> <?php echo $textone; ?>
-	<strong class="dots">:</strong>
+	<strong class="dots">:</strong><br><br>
 	<a href="" class="typewrite" data-period="2000" 
 	data-type='[ 
 		"<?php echo $texttwo; ?>" ,

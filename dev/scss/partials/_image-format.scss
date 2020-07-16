@@ -7,17 +7,21 @@
 		padding: 2rem 0 1rem 1rem;
 		font-family: $ff9;
 		font-weight: 600;
-		font-size: 3rem;
+		font-size: 2rem;
 		line-height: 0;
 		letter-spacing: 4px;
+		@include sm{
+			font-size: 3rem;
+		}
 		&::after{
 			content: "F";
 			position: absolute;
-			top:2rem;
-			left:0;
+			top:-2rem;
+			left:2.6rem;
 			font-size: 15rem;
 			font-family: $ff1;
 			color:rgba($accent, 0.2);
+			transform: rotate(-90deg);
 		}
 	}
 	.porto-format-image{
@@ -40,17 +44,23 @@
 			}
 			.format-image-header{
 				position: absolute;
-				top: 4rem;
-				left: 2rem;
+				top: 0.4rem;
+				left: 1rem;
 				z-index: 2;
 				transform: translateY(-200px);
 				transition: 500ms ease-in all;
+				@include sm{
+					top: 4rem;
+					left: 2rem;
+				}
 				.format-image-title{
-					font-size: 2.2rem;
+					font-size: 1.4rem;
 					font-family: $ff9;
 					text-transform: uppercase;
 					color: $white;
-	
+					@include sm{
+						font-size: 2.2rem;
+					}
 				}
 				.format-image-meta{
 					transform: translateY(-300px);
@@ -93,9 +103,9 @@
 				left: 0rem;
 				width: 80%;
 				height: 30%;
-				z-index: 4;
+				z-index: 42;
 				color: $white;
-				transform: translateY(300px);
+				transform: translateY(500px);
 				transition: 500ms ease-in all;
 				P{
 					font-size: 1rem;
@@ -113,6 +123,7 @@
 					position: absolute;
 					bottom: -2rem;
 					left: 0rem;
+					z-index: 22;
 					&:hover{
 						background-color: $accent;
 						color:$white;
@@ -120,9 +131,13 @@
 				}
 				.image-footer{
 					position: absolute;
-					bottom: 10rem;
-					left:2rem;
+					bottom: 5rem;
+					left:1rem;
 					z-index: 2;
+					@include sm {
+						bottom: 10rem;
+						left:2rem;
+					}
 					.footer-meta-wrapper{
 						.tags-list{
 							margin-bottom: 1rem;

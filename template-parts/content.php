@@ -23,9 +23,9 @@
 				</div>
 			</div>
 			<?php endif; ?>
-			<div class="entry-excerpt">
+	</div>
+	<div class="entry-excerpt">
 			<?php the_excerpt(); ?>
 			<a href="<?php the_permalink(); ?>" class="btn btn-main"><?php _e('Read More..'); ?></a>
 			</div>
-	</div>
 	</article>

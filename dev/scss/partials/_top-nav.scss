@@ -6,7 +6,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 80%;
+        width: 100%;
         padding: 1rem 0;
         display: block;
         @include sm{
@@ -179,7 +179,7 @@
                 .nav-toggle{
                     position: relative;
                     display: inline-block;
-                    width: 1.3rem;
+                    width: 0.8rem;
                     border-radius: 12px;
                     background:$steel;
                     height: 2px;
@@ -224,9 +224,9 @@
             top:0;
             left:0;
             right:0;
-            width:125%;
+            width:100%;
             //height: 100vh;
-            background: $light-gray;
+            background: darken($light-gray, 4%);
             transform: translateY(-100%);
             transition: 500ms ease-in transform;
   
