@@ -87,3 +87,21 @@ function animated_text_frontend_feature($textone, $texttwo, $textthree){
 	</a>
 	</h1>
 <?php }
+
+function porto_post_types(){
+	register_post_type( 'logo', array(
+		'supports'								=> array('title', 'editor', 'thumbnail'),
+		'rewrite'									=> array('slug' => 'logos'),
+		'has_archive'							=> true,
+		'public'									=> true,
+		'labels'									=> array(
+			'name'						=> 'Logos',
+			'add_new_item'		=>	'Add new logo',
+			'edit_item'				=> 'Edit Logo',
+			'all_items'				=> 'All Logos',
+			'singular_name'		=> 'Logo'
+		),
+		'menu_icon'								=> 'dashicons-art'
+	));
+}
+add_action( 'init', 'porto_post_types');

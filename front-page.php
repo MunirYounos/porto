@@ -77,16 +77,46 @@ get_header();?>
 		<?php 
 		
 		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 4 ) );
- 
 		if ( $latest_blog_posts->have_posts() ) : while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();
 				// Loop output goes here
 				get_template_part('template-parts/content');
 		endwhile; endif;
-
-		
 		?>
 		</div>
 	</div><!-- container -->
+</section>
+
+<section class="logo-section" id="logo-section">
+<div class="container">
+<div class="swiper-container">
+<div class="swiper-wrapper">
+		<?php 
+        $portoLogos = new WP_Query(array(
+          'posts_per_page' => -1,
+          'post_type' => 'logo',
+          'orderby' => 'title',
+          'order' => 'ASC',
+        ));
+
+        if ($portoLogos->have_posts()) {
+        while($portoLogos->have_posts()) {
+          $portoLogos->the_post(); ?>
+					<div class="swiper-slide">
+							<div class="imgBx">
+							<img class="swiper__image" src="<?php the_post_thumbnail_url('professorLandscape') ?>">
+							</div>
+							<div class="details">
+										<h3 class="swiper__name"><?php the_title(); ?><br><span><a class="swiper-link" href="<?php the_permalink(); ?>">See Details</a></span></h3>
+										
+							</div>
+					</div>
+        <?php }
+        } 
+        wp_reset_postdata(); ?>
+		
+		</div>
+</div>
+</div>
 </section>
 
 <?php get_footer(); ?>

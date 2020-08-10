@@ -11,7 +11,7 @@
 			left: 0;
 			width: 100%;
 			height:100%;
-			background: linear-gradient(45deg, rgba(darken($f7, 5%),1) 13%, rgba($f7,0.8) 100%);
+			background: linear-gradient(45deg, rgba(darken($cons, 5%),1) 13%, rgba($cons,0.8) 100%);
 			z-index: -1;
 	}
 	&-wrapper{
@@ -161,15 +161,15 @@
 				left: 40%;
 				transform: translate(-40%,-50%);
 				background: rgba($accent, 0.01);
-				width:400px;
-				height: 400px;
+				width:30%;
+				height: 30%;
 				border: 101px solid rgba($accent, 0.112);
 				border-radius: 50%;
 				z-index: 0;
 				@include sm{
-					width:600px;
-					height: 600px;
-					border: 125px solid rgba($accent, 0.112);
+					width:50%;
+					height: 50%;
+					border: 95px solid rgba($accent, 0.112);
 				}
 
 			}
@@ -180,5 +180,6 @@
 	}
 	}
 	
+
 
 	

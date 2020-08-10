@@ -41,10 +41,12 @@ FRONTEND ENQUEUE FUNCTIONS
 
 function porto_load_frontend_scripts(){
 	wp_enqueue_style( 'porto-main-styles', get_template_directory_uri() . '/assets/css/main.css' , array(), '1.0.0', 'all' );
+	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/partials/swiper.min.css' , array(), '0.0.01', 'all' );
 	wp_enqueue_style('porto_fontawesome', 'https://use.fontawesome.com/releases/v5.13.0/css/all.css');
 	wp_enqueue_style('porto_main_styles', get_stylesheet_uri());
 	wp_deregister_script( 'jquery' );
-	wp_enqueue_script('porto_main_js', get_theme_file_uri('/assets/js/main.js'), NULL, '0.4', true);
+	wp_enqueue_script('porto_main_js', get_theme_file_uri('/assets/js/swiper.min.js'), NULL, '0.4', true);
+	wp_enqueue_script('swiper_js', get_theme_file_uri('/assets/js/main.js'), NULL, '0.3', true);
 
 }
 
