@@ -103,7 +103,7 @@ get_header();?>
           $portoLogos->the_post(); ?>
 					<div class="swiper-slide">
 							<div class="imgBx">
-							<img class="swiper__image" src="<?php the_post_thumbnail_url('professorLandscape') ?>">
+							<img class="swiper__image" src="<?php the_post_thumbnail_url() ?>">
 							</div>
 							<div class="details">
 										<h3 class="swiper__name"><?php the_title(); ?><br><span><a class="swiper-link" href="<?php the_permalink(); ?>">See Details</a></span></h3>
